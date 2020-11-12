@@ -1,0 +1,34 @@
+<nav class="navbar navbar-light bg-light">
+  <a class="navbar-brand">Airbnb</a>
+  <form class="form-inline">
+    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    <button class="btn btn-outline-primary my-2 my-sm-0 ml-2"><%= link_to 'Add flat', new_flat_path %></button>
+
+  </form>
+</nav>
+
+<div class="m-4">
+  <H1>All the Flats</H1>
+  <p>Your <%= @flats.count%> flats.</p>
+
+  <div class="row row-cols-1 row-cols-md-2">
+    <% @flats.each do |flat| %>
+      <div class="col-md-4">
+        <div class="card" style="width: 18rem;">
+          <img src="..." class="card-img-top" alt="...">
+            <div class="card-body">
+              <h3 class="card-title"> <%= flat.name%></h3>
+              <p class="card-text"><%= flat.description %></p><br>
+              <p><%= flat.number_of_guests%> <%= flat.price_per_night%></p>
+              <div class="border-top">
+                <a href="#" class="card-link"><%= link_to 'More info', flat %></a>
+                <a href="#" class="card-link"><%= link_to 'Edit', edit_flat_path(flat) %></a>
+                <a href="#" class="card-link"><%= link_to 'Remove', flat ,method: :delete, data: { confirm: 'Are you sure?'} %></a>
+              </div>
+            </div>
+          </div>
+        </div>
+    <% end %>
+  </div>
+</div>
