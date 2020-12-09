@@ -8,27 +8,33 @@
   </form>
 </nav>
 
-<div class="m-4">
-  <H1>All the Flats</H1>
-  <p>Your <%= @flats.count%> flats.</p>
+<div class="container">
+  <p>Discover a selection of more than 10,000 vacation rentals in Mexico that are perfect for your trip. Whether you’re traveling with friends, family, or even pets, Vrbo vacation homes have the best amenities for hanging out with the people that matter most, including swimming pools and private pools. Prices start at MXN 1,761 per night, and houses and villas are popular options for a stay in Mexico. Either way, you'll find a rental for everyone's needs.</p>
+</div>
 
-  <div class="row row-cols-1 row-cols-md-2">
-    <% @flats.each do |flat| %>
-      <div class="col-md-4">
-        <div class="card" style="width: 18rem;">
-          <img src="..." class="card-img-top" alt="...">
-            <div class="card-body">
-              <h3 class="card-title"> <%= flat.name%></h3>
-              <p class="card-text"><%= flat.description %></p><br>
-              <p><%= flat.number_of_guests%> <%= flat.price_per_night%></p>
-              <div class="border-top">
-                <a href="#" class="card-link"><%= link_to 'More info', flat %></a>
-                <a href="#" class="card-link"><%= link_to 'Edit', edit_flat_path(flat) %></a>
-                <a href="#" class="card-link"><%= link_to 'Remove', flat ,method: :delete, data: { confirm: 'Are you sure?'} %></a>
+<div class="container">
+  <div class="m-4">
+    <H1>All the Flats</H1>
+    <p>Your <%= @flats.count%> flats.</p>
+
+    <div class="row row-cols-1 row-cols-md-2">
+      <% @flats.each do |flat| %>
+        <div class="col-md-4">
+          <div class="card mb-4" style="width: 18rem;">
+            <img src="..." class="card-img-top" alt="...">
+              <div class="card-body">
+                <h3 class="card-title"> <%= flat.name%></h3>
+                <p class="card-text"><%= flat.description %></p><br>
+                <p><%= flat.number_of_guests%> <%= flat.price_per_night%></p>
+                <div class="border-top">
+                  <a href="#" class="card-link"><%= link_to 'More info', flat %></a>
+                  <a href="#" class="card-link"><%= link_to 'Edit', edit_flat_path(flat) %></a>
+                  <a href="#" class="card-link"><%= link_to 'Remove', flat ,method: :delete, data: { confirm: 'Are you sure?'} %></a>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-    <% end %>
+      <% end %>
+    </div>
   </div>
 </div>
